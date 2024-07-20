@@ -15,7 +15,7 @@ The **Codeforces Lamp** project provides a Dockerized solution for integrating w
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/codeforces-lamp.git
+    git clone https://github.com/hanisntsolo/codeforces-lamp.git
     cd codeforces-lamp
     ```
 
