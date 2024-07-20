@@ -5,9 +5,10 @@ on:
     branches:
       - main
   # Schedule for automatic builds:
-  # schedule:
+  schedule:
       - cron: '0 0 * * *' # Every day at midnight UTC
-
+  workflow_dispatch: # Allow manual triggers
+  
 jobs:
   build:
     runs-on: ubuntu-latest
