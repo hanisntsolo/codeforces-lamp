@@ -6,7 +6,7 @@ on:
       - main
   # Schedule for automatic builds:
   schedule:
-      - cron: '0 0 * * *' # Every day at midnight UTC
+    - cron: '0 0 * * *' # Every day at midnight UTC
   workflow_dispatch: # Allow manual triggers
   
 jobs:
@@ -29,13 +29,15 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
-
-      - name: Build Docker image
-        run: |
-          docker buildx build --push --tag hanisntsolo/codeforces-lamp:latest .
-
+            
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Build and push Docker image
+        run: |
+          docker buildx build --push --tag hanisntsolo/codeforces-lamp:latest .
+
+
